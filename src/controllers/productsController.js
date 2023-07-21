@@ -23,5 +23,16 @@ const controller = {
         let product = products.find((producto) => producto.id == id);
         res.send(product);
     },
+    eliminar : (req, res) => {
+        let id = req.params.id;
+        let product = products.find((producto) => producto.id == id);
+        res.send(product);
+    },
+    actualizar : (req, res) => {
+        let id = req.params.id;
+        let product = products.find((producto) => producto.id == id);
+        res.send(product);
+    },
+
 }
 module.exports = controller;
