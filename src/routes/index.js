@@ -2,6 +2,8 @@ const express = require ('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const { error } = require('console');
+const errorHandler = require('../middlewares/errorHandler');
 
 //conseguimos la ruta de rutas
 const ruta = path.resolve(__dirname);
@@ -21,11 +23,6 @@ fs.readdirSync(ruta).filter( (file) =>{ // lee la ruta y filtra los nombres de l
     }
   
 
-});
-
-router.get('*', (req, res)=>{
-    res.status(404);
-    res.send({ error: 'Not Found' })
 });
 
 module.exports = router

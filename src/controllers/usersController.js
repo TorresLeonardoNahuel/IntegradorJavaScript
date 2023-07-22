@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const {httpError} = require('../helpers/handleError');
 const ruta = path.resolve(__dirname, '../data/users.json');
 const jsonUsers = fs.readFileSync(ruta,{encoding: 'Utf-8'});
 
@@ -31,7 +30,6 @@ const controller = {
              error = e;
              msg = 'algo paso';
         }
-        httpError(res,error,msg)
     },
     listar : (req, res) => {
         res.send(users);

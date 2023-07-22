@@ -5,6 +5,8 @@ const cors = require('cors');
 const app = express();
 const PORT=process.env.PORT || 3000;
 const routes = require('./routes/index.js');
+const errorHandler = require('./middlewares/errorHandler.js');
+
 
 
 // configuraciones app.use()
@@ -16,7 +18,14 @@ app.use(express.json());
 //Rutas auto cargadas en Routes/Index.js
 app.use('/api/1.0',routes);
 
-
+app.use('*', (req, res, next)=>{
+    const error = new Error(
+        'Pagina no encontrada'
+    );
+    error.status = 404;
+    next(error);}
+);
+app.use(errorHandler);
 
 
 app.listen(PORT,() => console.log(`server corriendo en el puerto http://localhost:${PORT}`));
