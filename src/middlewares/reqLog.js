@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-// Centralized error handling middleware
+
 function convertHoraArgentina(horaUtc) {
   const options = {
     timeZone: 'America/Argentina/Buenos_Aires',
@@ -14,29 +14,25 @@ function convertHoraArgentina(horaUtc) {
 
   return new Date(horaUtc).toLocaleString('es-AR', options);
 }
-const errorHandler = (err, req, res, next) => {
-    console.error(err.status,err.message);   
-    const status = err.status || 500;
-    const message = err.message || 'Algo salio Mal';
-  
-    res.status(status).json({
-      status: 'error',
-      statusCode: status,
-      message: message,
-    });
+// Definir el middleware del registrador de paginas solicitadas
+const reqLogMiddleware = (req, res, next) => {
 
   // Obtener la fecha y hora actual
   const horaUtc = new Date().toISOString();
   const horaArgentina = convertHoraArgentina(horaUtc);
   // Obtener la fecha y hora actual
-  const logEntry = `[${horaArgentina}] ${status} ${message}\n ${err}\n\n`;
+  const logEntry = `[${horaArgentina}] ${req.method} ${req.url}\n`;
   // Definir la ruta del archivo de registro
-  const logFilePath = path.resolve(__dirname, '../logs/errorsLogs.txt');
+  const logFilePath = path.resolve(__dirname, '../logs/req_Method_log.txt');
 
   // Escribir la entrada de registro en el archivo de registro 
   fs.appendFile(logFilePath, logEntry, (err) => {
+    if (err) {
+      // Si hay un error al escribir el registro
+      console.error('Error al escribir registro:', err);
+    }
      next();
-  });
-  };
+});
+};
 
-  module.exports = errorHandler;
+module.exports = reqLogMiddleware;

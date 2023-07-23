@@ -122,7 +122,47 @@ const controller = {
             }
         } catch (e) {
             next(e);
-        }}
+        }},
+
+        buscarPorNombre: (req, res, next) => {
+            try {
+              // Obtenga q y conviértala a minusculas para una busqueda que no distinga entre mayusculas y minusculas  
+              const palabraBuscar = req.query.q.toLowerCase(); 
+
+              const productosEncontrados = productos.filter((prod) =>
+                prod.name.toLowerCase().includes(palabraBuscar)
+              );
+        
+              if (productosEncontrados.length === 0) {
+                const error = new Error('No se encontraron productos con el nombre especificado');
+                error.status = 404;
+                throw error;
+              }
+        
+              res.send(productosEncontrados);
+            } catch (e) {
+              next(e);
+            }
+          },
+
+        buscarPorMarca: (req, res, next) => {
+        try {
+            const palabraBuscar = req.query.q.toLowerCase(); 
+            const productosEncontrados = productos.filter((prod) =>
+            prod.category.toLowerCase().includes(palabraBuscar)
+            );
+    
+            if (productosEncontrados.length === 0) {
+            const error = new Error('No se encontraron productos con la categoria especificada');
+            error.status = 404;
+            throw error;
+            }
+    
+            res.send(productosEncontrados);
+        } catch (e) {
+            next(e);
+        }
+        },
 
 }
 module.exports = controller;
