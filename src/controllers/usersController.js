@@ -78,9 +78,7 @@ const controller = {
             let userIndex = users.findIndex((usuario) => usuario.id == id);
 
         if (userIndex !== -1) {
-            //quitar el usuario del array
             let userEliminado = users.splice(userIndex, 1)[0];
-            //guardar la nueva lista de usuarioz en el Json
             const updatedUsuarioJSON = JSON.stringify(users);
             fs.writeFileSync(ruta, updatedUsuarioJSON, 'utf-8');
             res.send(userEliminado);
@@ -105,8 +103,6 @@ const controller = {
     
             if (userIndex !== -1) {
                 let userActualizado = users[userIndex];
-    
-                // Actualizamos la informacion con la nueva data (solo la que nos envie en el body)
                 if (req.body.id) userActualizado.id = req.body.id;
                 if (req.body.isActive) userActualizado.isActive = req.body.isActive;
                 if (req.body.age) userActualizado.age = req.body.age;
@@ -119,7 +115,6 @@ const controller = {
                 if (req.body.address) userActualizado.daddress = req.body.address;
                 if (req.body.pass) userActualizado.pass = req.body.pass;
     
-                // Guardamos en el Json de users los cambios
                 const updatedUserJSON = JSON.stringify(users);
                 fs.writeFileSync(ruta, updatedUserJSON, 'utf-8');
                 res.send(userActualizado);

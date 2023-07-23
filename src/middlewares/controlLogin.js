@@ -9,7 +9,7 @@ const checkLogin = (req, res, next) => {
         const error = new Error(
             'Usuario no autorizado para Crear ni Modificar ni Eliminar'
         );
-        error.status = 404;
+        error.status = 401;
         throw error;
     }
 

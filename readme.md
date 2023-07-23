@@ -22,12 +22,14 @@ para ello habra que pasarle en el Header un user=admin y pass=123456
 1. listar Todos los productos mediante /api/1.0/productos
 2. podemos buscar un producto en particular si conocemos su id(/api/1.0/productos/id)
 3. si recordamos parte de su nombre o categoria podemos buscarlo por el indicio de esa palabra
-ej:
+
+
+# Ejemplo:
 /api/1.0/productos/buscar/nombre?q=apple  (traera todos los productos que contengan en el Nombre la palabra Apple)
-
-ó
-
+# ó
 /api/1.0/productos/buscar/categoria?q=computer (traera todos los productos que contengan en la Categoria la palabra Computer)
+
+
 4. Para Elimina enviamos el metodo DELETE y el id /api/1.0/productos/id  
 5. Para Modificar enviamos el PATCH, el id y el body
 6. Para crear enviamos por el metodo POST en el body el json del producto a /api/1.0/productos
