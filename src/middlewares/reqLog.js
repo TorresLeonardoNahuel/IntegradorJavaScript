@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+//funcion para convertir a hs argentina
 function convertHoraArgentina(horaUtc) {
   const options = {
     timeZone: 'America/Argentina/Buenos_Aires',
@@ -14,18 +15,18 @@ function convertHoraArgentina(horaUtc) {
 
   return new Date(horaUtc).toLocaleString('es-AR', options);
 }
-// Definir el middleware del registrador de paginas solicitadas
 const reqLogMiddleware = (req, res, next) => {
 
   // Obtener la fecha y hora actual
   const horaUtc = new Date().toISOString();
+  //la convertimos en formato y hora de Argentina
   const horaArgentina = convertHoraArgentina(horaUtc);
-  // Obtener la fecha y hora actual
+  // creamos el Log
   const logEntry = `[${horaArgentina}] ${req.method} ${req.url}\n`;
-  // Definir la ruta del archivo de registro
+  // obtenemos la ruta del .txt
   const logFilePath = path.resolve(__dirname, '../logs/req_Method_log.txt');
 
-  // Escribir la entrada de registro en el archivo de registro 
+  // Escribir en el log.txt en la ruta donde se encuentra 
   fs.appendFile(logFilePath, logEntry, (err) => {
     if (err) {
       // Si hay un error al escribir el registro
@@ -35,4 +36,4 @@ const reqLogMiddleware = (req, res, next) => {
 });
 };
 
-module.exports = reqLogMiddleware;
+module.exports = {reqLogMiddleware,convertHoraArgentina};

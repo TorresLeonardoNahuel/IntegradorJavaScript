@@ -1,9 +1,12 @@
 
 const checkLogin = (req, res, next) => {
+    //tomamos del headers los datos
     const user = req.headers.user;
     const pass = req.headers.pass;
+
     console.log(req.headers);
-    if (user == 'admin' && pass == '123456'){
+
+    if (user == 'admin' && pass == '123456'){ //es el usuario admin?
         next();
     }else{
         const error = new Error(

@@ -14,6 +14,7 @@ const reqLogMiddleware = require('./middlewares/reqLog.js');
 app.use(cors());
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+//meddleware de logs de req
 app.use(reqLogMiddleware);
 
 
@@ -26,8 +27,7 @@ app.use('*', (req, res, next)=>{
     error.status = 404;
     next(error);}
 );
-
-app.use(reqLogMiddleware);
+//middleware de errores
 app.use(errorHandler);
 
 
