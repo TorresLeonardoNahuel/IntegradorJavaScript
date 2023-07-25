@@ -1,0 +1,81 @@
+[25/07/2023, 03:12:26] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:15:34] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:16:26] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:19:39] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:20:43] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:24:01] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:24:23] 404 Pagina no encontrada
+ Error: Pagina no encontrada
+
+[25/07/2023, 03:42:37] 500 file is not defined
+ ReferenceError: file is not defined
+
+[25/07/2023, 04:08:30] 500 file is not defined
+ ReferenceError: file is not defined
+
+[25/07/2023, 04:09:30] 500 file is not defined
+ ReferenceError: file is not defined
+
+[25/07/2023, 04:14:26] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 04:20:42] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 04:24:31] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 04:30:18] 500 productoActualizado is not defined
+ ReferenceError: productoActualizado is not defined
+
+[25/07/2023, 04:34:03] 500 productoActualizado is not defined
+ ReferenceError: productoActualizado is not defined
+
+[25/07/2023, 04:55:59] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 04:57:58] 404 Producto no encontrado
+ Error: Producto no encontrado
+
+[25/07/2023, 04:59:20] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 05:06:04] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 05:06:24] 500 Cannot read properties of undefined (reading 'originalname')
+ TypeError: Cannot read properties of undefined (reading 'originalname')
+
+[25/07/2023, 05:08:11] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 05:08:21] 500 Cannot read properties of undefined (reading 'originalname')
+ TypeError: Cannot read properties of undefined (reading 'originalname')
+
+[25/07/2023, 05:08:35] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 05:09:00] 500 Cannot read properties of undefined (reading 'originalname')
+ TypeError: Cannot read properties of undefined (reading 'originalname')
+
+[25/07/2023, 05:10:13] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
+ Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+
+[25/07/2023, 05:10:20] 500 Cannot read properties of undefined (reading 'originalname')
+ TypeError: Cannot read properties of undefined (reading 'originalname')
+
+[25/07/2023, 05:12:26] 500 Cannot read properties of undefined (reading 'originalname')
+ TypeError: Cannot read properties of undefined (reading 'originalname')
+

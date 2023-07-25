@@ -145,56 +145,20 @@
   },
   {
     "id": 17,
-    "name": "Cafetera Dolce",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 18,
-    "name": "Cafetera Dolce",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 19,
-    "name": "Cafetera Dolce",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 20,
-    "name": "Cafetera Dolce",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 21,
-    "name": "Macbook",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 22,
-    "name": "Macbook",
-    "price": "12000",
-    "discount": "10"
-  },
-  {
-    "id": 24,
     "name": "Heladera Gafa HGF358 blanca con freezer 282L 220V",
     "price": 207899,
     "discount": 15,
     "category": "Electrodomestico",
     "description": "La Heladera Gafa HGF358 blanca con freezer es la solución perfecta para mantener tus alimentos frescos y organizados en tu hogar. Con una capacidad total de 282 litros, este electrodoméstico cuenta con un freezer superior y un refrigerador con 3 estantes, lo que te permite almacenar una gran variedad de productos de manera eficiente. Además, su eficiencia energética clase A te ayudará a ahorrar en tus facturas de electricidad",
-    "image": "Heladera-Gafa-HGF358-blanca.jpg"
+    "image": "img-Heladera-Gafa-HGF358-blanca.jpg"
   },
   {
-    "id": 23,
-    "name": "Macbook",
+    "id": 18,
+    "name": "UltrMacbook",
     "price": 530000,
     "discount": 15,
     "category": "Computer",
     "description": "Computer Computer Computer Computer Computer Computer Computer Computer ",
-    "image": "Computer-Macbook.jpg"
+    "image": "belisa-1690272850608.jpg"
   }
 ]

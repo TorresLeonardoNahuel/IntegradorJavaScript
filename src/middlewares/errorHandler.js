@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const convertHoraArgentina =require('./reqLog.js')
+const {convertHoraArgentina} =require('./reqLog.js')
 
 
-const errorHandler = (err, req, res, next) => {
-    console.error(err.status,err.message);   
+const erroresHandler = (err, req, res, next) => {
+    //console.error(err.status,err.message);   
     const status = err.status || 500;
     const message = err.message || 'Algo salio Mal';
   
@@ -24,4 +24,4 @@ const errorHandler = (err, req, res, next) => {
   });
   };
 
-  module.exports = errorHandler;
+  module.exports = {erroresHandler};
