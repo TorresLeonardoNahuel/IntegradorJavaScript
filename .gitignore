@@ -1,1 +1,6 @@
 node_modules
+/public/images
+/public/views/estilo/bootstrap.css
+/public/views/estilo/bootstrap.css.map
+/public/views/js/boostrap.js
+/public/views/js/boostrap.js.map
