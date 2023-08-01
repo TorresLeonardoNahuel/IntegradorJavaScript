@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="estilo/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="estilo/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/common.js"></script>
+    <title>Contacto</title>
+</head>
+<body>
+    <!-- Incluir el encabezado -->
+  <div id="header"></div>
+  <div class="container contenedor">
+    <div class="row">
+          <h2 class=" col-12">Contáctanos</h2>
+
+        <form clas="col-12" action="/enviar_Contacto" method="POST">
+
+          <div class="row-cols-2">
+              <label for="nombre">Nombre y Apellido:</label>
+              <input type="text" id="nombre" name="nombre" required>
+          </div>
+
+          <div class="row-cols-2"> 
+              <label class="col-lg-6 col-xxl-12" for="email">Email:</label>
+              <input class="col-lg-6 col-xxl-12" type="email" id="email" name="email" required>
+          </div>
+
+          <div class="row-cols-2">
+              <label class="col-lg-6 col-xxl-12" for="mensaje">Mensaje:</label>
+              <textarea class="col-lg-6 col-xxl-12" id="mensaje" name="mensaje" required></textarea>
+          </div>
+
+
+          <input type="submit" class="btn" value="Enviar">
+        </form>
+      </div>
+  </div>
+    <!-- Incluir el pie de página -->
+  <div id="footer"></div>
+</body>
+</html>

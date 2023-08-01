@@ -3,16 +3,18 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT=process.env.PORT || 3000;
 const routes = require('./routes/index.js');
 const {erroresHandler} = require('./middlewares/errorHandler.js');
 const {reqLogMiddleware} = require('./middlewares/reqLog.js');
 const path = require('path');
+const {runDbMongoClient} = require('./database/config/mongo.js');
+const PORT=process.env.PORT || 3000;
 
-
-
+//Conexion a la base
+runDbMongoClient();
 
 // configuraciones app.use()
+
 app.use(cors());
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
