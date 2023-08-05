@@ -1,81 +1,126 @@
-[25/07/2023, 03:12:26] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 05:20:30] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
 
-[25/07/2023, 03:15:34] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 05:20:48] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
 
-[25/07/2023, 03:16:26] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 05:21:06] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
 
-[25/07/2023, 03:19:39] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 05:21:21] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
 
-[25/07/2023, 03:20:43] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 13:43:41] 500 Cast to ObjectId failed for value "{ _id: '12' }" (type Object) at path "_id" for model "Product"
+ CastError: Cast to ObjectId failed for value "{ _id: '12' }" (type Object) at path "_id" for model "Product"
 
-[25/07/2023, 03:24:01] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 13:46:05] 500 Cast to ObjectId failed for value "{ _id: '12' }" (type Object) at path "_id" for model "Product"
+ CastError: Cast to ObjectId failed for value "{ _id: '12' }" (type Object) at path "_id" for model "Product"
 
-[25/07/2023, 03:24:23] 404 Pagina no encontrada
- Error: Pagina no encontrada
+[05/08/2023, 13:50:30] 404 No se encontraron productos con la categoria especificada
+ Error: No se encontraron productos con la categoria especificada
 
-[25/07/2023, 03:42:37] 500 file is not defined
- ReferenceError: file is not defined
+[05/08/2023, 13:50:44] 404 No se encontraron productos con la categoria especificada
+ Error: No se encontraron productos con la categoria especificada
 
-[25/07/2023, 04:08:30] 500 file is not defined
- ReferenceError: file is not defined
+[05/08/2023, 13:52:44] 500 Product validation failed: name: Path `name` is required.
+ ValidationError: name: Path `name` is required.
 
-[25/07/2023, 04:09:30] 500 file is not defined
- ReferenceError: file is not defined
+[05/08/2023, 13:53:07] 500 Product validation failed: price: Path `price` is required.
+ ValidationError: price: Path `price` is required.
 
-[25/07/2023, 04:14:26] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:53:11] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required.
 
-[25/07/2023, 04:20:42] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:53:15] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required.
 
-[25/07/2023, 04:24:31] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:53:24] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 04:30:18] 500 productoActualizado is not defined
- ReferenceError: productoActualizado is not defined
+[05/08/2023, 13:53:59] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 04:34:03] 500 productoActualizado is not defined
- ReferenceError: productoActualizado is not defined
+[05/08/2023, 13:54:33] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 04:55:59] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:54:59] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 04:57:58] 404 Producto no encontrado
- Error: Producto no encontrado
+[05/08/2023, 13:55:56] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 04:59:20] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:56:32] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:06:04] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:57:10] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:06:24] 500 Cannot read properties of undefined (reading 'originalname')
- TypeError: Cannot read properties of undefined (reading 'originalname')
+[05/08/2023, 13:57:19] 500 Product validation failed: discount: Path `discount` is required.
+ ValidationError: discount: Path `discount` is required.
 
-[25/07/2023, 05:08:11] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:58:12] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:08:21] 500 Cannot read properties of undefined (reading 'originalname')
- TypeError: Cannot read properties of undefined (reading 'originalname')
+[05/08/2023, 13:58:41] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:08:35] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 13:59:12] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:09:00] 500 Cannot read properties of undefined (reading 'originalname')
- TypeError: Cannot read properties of undefined (reading 'originalname')
+[05/08/2023, 13:59:44] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:10:13] 400 Los campos requeridos están vacíos, no se puede cargar un Producto
- Error: Los campos requeridos están vacíos, no se puede cargar un Producto
+[05/08/2023, 14:18:10] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:10:20] 500 Cannot read properties of undefined (reading 'originalname')
- TypeError: Cannot read properties of undefined (reading 'originalname')
+[05/08/2023, 14:21:51] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
 
-[25/07/2023, 05:12:26] 500 Cannot read properties of undefined (reading 'originalname')
- TypeError: Cannot read properties of undefined (reading 'originalname')
+[05/08/2023, 14:22:40] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:28:23] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:29:22] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:29:41] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:29:57] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:30:31] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:32:20] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:39:54] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:41:47] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:45:33] 500 Cannot read properties of undefined (reading 'filename')
+ TypeError: Cannot read properties of undefined (reading 'filename')
+
+[05/08/2023, 14:56:04] 500 Unexpected field
+ MulterError: Unexpected field
+
+[05/08/2023, 14:59:22] 500 Unexpected field
+ MulterError: Unexpected field
+
+[05/08/2023, 15:03:27] 500 Unexpected field
+ MulterError: Unexpected field
+
+[05/08/2023, 15:10:54] 500 Unexpected field
+ MulterError: Unexpected field
+
+[05/08/2023, 15:21:11] 500 Unexpected field
+ MulterError: Unexpected field
+
+[05/08/2023, 15:21:28] 500 Unexpected field
+ MulterError: Unexpected field
 

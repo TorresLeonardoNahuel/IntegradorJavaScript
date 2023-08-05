@@ -7,21 +7,19 @@ const routes = require('./routes/index.js');
 const {erroresHandler} = require('./middlewares/errorHandler.js');
 const {reqLogMiddleware} = require('./middlewares/reqLog.js');
 const path = require('path');
-const {runDbMongoClient} = require('./database/config/mongo.js');
+const connectToDb  = require('./database/config/mongo');
 const PORT=process.env.PORT || 3000;
 
 //Conexion a la base
-runDbMongoClient();
+connectToDb();
 
 // configuraciones app.use()
-
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(cors());
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 //meddleware de logs de req
 app.use(reqLogMiddleware);
-app.use('/public/images', express.static(path.join(__dirname,'../public/images')));
-
 
 //Rutas auto cargadas en Routes/Index.js
 app.use('/api/1.0',routes);

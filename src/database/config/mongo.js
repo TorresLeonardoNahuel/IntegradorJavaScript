@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const uri = process.env.DB_URI;
 
-const runDbMongoClient = async () =>{
+module.exports = async () =>{
     try{
       await mongoose.connect(uri);
       console.log('Conectado a la DataBase');
@@ -11,4 +11,3 @@ const runDbMongoClient = async () =>{
       console.log(e);
     }
 }
-module.exports = {runDbMongoClient};

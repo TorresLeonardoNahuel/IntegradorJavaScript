@@ -4,7 +4,7 @@ const {convertHoraArgentina} =require('./reqLog.js')
 
 
 const erroresHandler = (err, req, res, next) => {
-    //console.error(err.status,err.message);   
+    console.error(err.status,err.message);   
     const status = err.status || 500;
     const message = err.message || 'Algo salio Mal';
   

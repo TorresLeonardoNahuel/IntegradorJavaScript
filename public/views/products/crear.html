@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crear Producto</title>
+  <link rel="stylesheet" href="../../estilo/estilo.css">
+</head>
+<body>
+  <button id="openModalBtn">Crear Producto</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content container contenedor">
+            <span class="close">&times;</span>
+            <h2>Crear Producto</h2>
+            <form id="productForm">
+              <div class="form-group"> 
+                <label for="name">Nombre del Producto:</label>
+                <input type="text" id="name" placeholder="Ej: Coca Cola 1.5 lts" required>
+              </div>
+
+              <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="number" placeholder="0.00" id="price" required>
+              </div>
+
+              <div class="form-group">
+                <label for="discount">Descuento:</label>
+                <input type="number" placeholder="15" id="discount" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="category">Categoría:</label>
+                <input type="text" id="category" required>
+              </div>
+  
+              <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" accept="imagen/*" required>
+              </div>
+                <button type="submit">Crear</button>
+              
+            </form>
+        </div>
+    </div>
+
+  <script src="../../js/productos/crearProducto.js"></script>
+</body>
+</html>
