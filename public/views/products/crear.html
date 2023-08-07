@@ -1,9 +1,14 @@
-<button id="openModalBtn">Crear Producto</button>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content container contenedor">
-            <span class="close">&times;</span>
-            <h2>Crear Producto</h2>
+<button id="openModalBtn" class="btn btn-primary">Crear Producto</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Crear Producto</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
             <form id="productForm">
               <div class="form-group"> 
                 <label for="name">Nombre del Producto:</label>
@@ -36,5 +41,9 @@
                 <button type="submit">Crear</button>
               
             </form>
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
+</div>
+ 
+    

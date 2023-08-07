@@ -1,7 +1,6 @@
 const { body, param, query } = require('express-validator');
 const mongoose = require('mongoose');
 const Product = require('../database/models/Product.js'); // Asegúrate de que la ruta sea correcta
-
 const validateProduct = {
   validateId: [
     param('id').custom((value) => mongoose.Types.ObjectId.isValid(value)).withMessage('Producto ID Incorrecto'),
