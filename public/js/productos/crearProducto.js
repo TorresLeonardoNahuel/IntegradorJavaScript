@@ -1,64 +1,96 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('myModal');
-  const openModalBtn = document.getElementById('openModalBtn');
-  const closeModalBtn = document.getElementsByClassName('close')[0];
-  const productForm = document.getElementById('productForm');
+const apiUrl = 'http://localhost:3000/api/1.0/productos/'; // Reemplaza 'URL_DE_TU_API' con la URL de tu API
 
-  openModalBtn.addEventListener('click', function () {
-      modal.style.display = 'block';
+// Función para cargar la lista de productos al cargar la página
+window.onload = function () {
+  cargarProductos();
+};
+
+// Función para cargar la lista de productos desde la API
+function cargarProductos() {
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => mostrarProductos(data))
+    .catch((error) => console.error('Error al cargar los productos:', error));
+}
+
+// Función para mostrar los productos en la tabla
+function mostrarProductos(productos) {
+  const productosBody = document.getElementById('productosBody');
+  productosBody.innerHTML = '';
+
+  productos.forEach((producto) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${producto.name}</td>
+      <td>$ ${producto.price}</td>
+      <td>${producto.category}</td>
+      <td>${producto.description}</td>
+      <td>
+        <button type="button" class="btn btn-primary" onclick="editarProducto('${producto._id}')">Editar</button>
+        <button type="button" class="btn btn-danger" onclick="eliminarProducto('${producto._id}')">Eliminar</button>
+      </td>
+    `;
+    productosBody.appendChild(row);
   });
+}
 
-  closeModalBtn.addEventListener('click', function () {
-      modal.style.display = 'none';
-  });
+// Función para buscar productos por nombre
+function buscarProductos() {
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput.value.trim().toLowerCase();
 
-  window.addEventListener('dblclick', function (event) {
-      if (event.target == modal) {
-          modal.style.display = 'none';
-      }
-  });
+  fetch(apiUrl + '/buscar/nombre?q=' + searchTerm)
+    .then((response) => response.json())
+    .then((data) => mostrarProductos(data))
+    .catch((error) => console.error('Error al buscar productos:', error));
+}
 
-  productForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+// Función para crear un nuevo producto
 
-      const name = document.getElementById('name').value;
-      const price = document.getElementById('price').value;
-      const discount = document.getElementById('discount').value;
-      const category = document.getElementById('category').value;
-      const description = document.getElementById('description').value;
-      const imagenInput = document.getElementById('imagen'); // Input de tipo "file"
-      const imagenFile = imagenInput.files[0]; // Obtener el archivo seleccionado
+// Función para editar un producto
+function editarProducto(id) {
+  const nameInput = document.getElementById('nombreEditar');
+  const priceInput = document.getElementById('precioEditar');
+  const discountInput = document.getElementById('descuentoEditar');
+  const categoryInput = document.getElementById('categoriaEditar');
+  const descriptionInput = document.getElementById('descripcionEditar');
 
-      // Crear un objeto FormData para enviar los datos y la imagen al servidor
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('price', price);
-      formData.append('discount', discount);
-      formData.append('category', category);
-      formData.append('description', description);
-      formData.append('imagen', imagenFile); // Agregar la imagen al FormData
+  const productoActualizado = {
+    name: nameInput.value.trim(),
+    price: parseFloat(priceInput.value),
+    discount: parseFloat(discountInput.value),
+    category: categoryInput.value.trim(),
+    description: descriptionInput.value.trim(),
+  };
 
-      // Aquí puedes enviar la solicitud POST al servidor utilizando fetch
-      fetch('/api/1.0/products', {
-          method: 'POST',
-          body: formData, // Usar el objeto FormData como cuerpo de la solicitud
-          headers: {
-              // No es necesario establecer el Content-Type en este caso, el navegador lo manejará automáticamente
-              'user': 'admin',
-              'pass': '123456'
-          },
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log('Producto creado:', data);
-          // Puedes manejar la respuesta aquí, como mostrar un mensaje de éxito o actualizar la lista de productos, etc.
-      })
-      .catch(error => {
-          console.error('Error al crear el Producto', error);
-          // Puedes manejar errores aquí, como mostrar un mensaje de error al usuario, etc.
-      });
+  fetch(apiUrl + '/' + id, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(productoActualizado),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Actualizar la lista de productos
+      cargarProductos();
+      // Cerrar el modal de editar
+      $('#editarModal').modal('hide');
+    })
+    .catch((error) => console.error('Error al editar el producto:', error));
 
-      // Después de manejar los datos, puedes cerrar el modal.
-      modal.style.display = 'none';
-  });
-});
+}
+
+// Función para eliminar un producto
+function eliminarProducto(id) {
+  // Implementa la lógica para eliminar un producto desde la API
+  // Puedes usar fetch para hacer una solicitud DELETE a la API
+  if (confirm('¿Estás seguro de eliminar este producto?')) {
+    fetch(apiUrl + '/' + id, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then(() => cargarProductos())
+      .catch((error) => console.error('Error al eliminar el producto:', error));
+  }
+}
