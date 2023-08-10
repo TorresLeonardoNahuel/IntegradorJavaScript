@@ -1,0 +1,72 @@
+[09/08/2023, 01:20:34] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
+
+[09/08/2023, 01:43:05] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[10/08/2023, 15:03:33] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[10/08/2023, 15:13:56] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:15:16] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:17:47] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:19:23] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:20:11] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:20:55] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:27:46] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:28:32] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[10/08/2023, 15:29:16] 500 Unexpected field
+ MulterError: Unexpected field
+
+[10/08/2023, 15:40:54] 401 Usuario no autorizado para Crear ni Modificar ni Eliminar
+ Error: Usuario no autorizado para Crear ni Modificar ni Eliminar
+
+[10/08/2023, 16:26:11] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
+
+[10/08/2023, 18:19:27] 401 Usuario no autorizado para Crear ni Modificar ni Eliminar
+ Error: Usuario no autorizado para Crear ni Modificar ni Eliminar
+
+[10/08/2023, 18:36:09] 500 ENOENT: no such file or directory, unlink 'C:\Users\Leonardo}\Documents\Programacion\Programacion Web\Trabajo integrador JS\public\images\users\img-Craig.jpg'
+ Error: ENOENT: no such file or directory, unlink 'C:\Users\Leonardo}\Documents\Programacion\Programacion Web\Trabajo integrador JS\public\images\users\img-Craig.jpg'
+
+[10/08/2023, 18:51:18] 500 users is not defined
+ ReferenceError: users is not defined
+
+[10/08/2023, 19:02:28] 500 Cast to Number failed for value "/26/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/26/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:03:29] 500 Cast to Number failed for value "/"26"/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/"26"/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:03:49] 500 Cast to Number failed for value "/"23"/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/"23"/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:03:55] 500 Cast to Number failed for value "/23/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/23/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:07:08] 500 Cast to Number failed for value "/23/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/23/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:08:07] 500 Cast to Number failed for value "/36128114/i" (type RegExp) at path "dni" for model "User"
+ CastError: Cast to Number failed for value "/36128114/i" (type RegExp) at path "dni" for model "User"
+
+[10/08/2023, 19:44:33] 500 User validation failed: gender: Path `gender` is required., email: Path `email` is required.
+ ValidationError: gender: Path `gender` is required., email: Path `email` is required.
+

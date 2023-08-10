@@ -1,10 +1,78 @@
-const apiUrl = 'http://localhost:3000/api/1.0/productos/'; // Reemplaza 'URL_DE_TU_API' con la URL de tu API
+const apiUrl = 'http://localhost:3000/api/1.0/productos/'; 
 
 // Función para cargar la lista de productos al cargar la página
-window.onload = function () {
-  cargarProductos();
-};
+window.onload = function  () {
+    cargarProductos();
+    const modal = document.querySelector('#myModal');
+    const openModalBtn = document.querySelector('#openModalBtn');
+    const closeModalBtn = document.querySelector('.close');
+    const productForm = document.querySelector('#productForm');
 
+
+   openModalBtn.addEventListener('click', function () {
+       modal.style.display = 'block';
+    });
+
+    closeModalBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('dblclick', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+   
+   productForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.querySelector('#name').value;
+        const price = document.querySelector('#price').value;
+        const discount = document.querySelector('#discount').value;
+        const category = document.querySelector('#category').value;
+        const description = document.querySelector('#description').value;
+        const imagenFile = document.querySelector("#imagen").files[0]; // Obtener el archivo seleccionado
+        console.log(name,price,discount,category,description,imagenFile);
+        // Crear un objeto FormData para enviar los datos y la imagen al servidor
+        const formData = new FormData();
+
+        formData.append("name", name);
+        formData.append("price", price);
+        formData.append("discount", discount);
+        formData.append(`category`, category);
+        formData.append('description', description);
+        formData.append('imagen', imagenFile); 
+        console.log(formData);
+
+        let option ={
+          method:'POST',
+          headers: {
+            'user': 'admin',
+            'pass': '123456'
+          },
+          body: formData
+          
+        }
+          fetch(apiUrl,option)
+            .then(function (response) {
+              return  response.json();
+          })
+            .then((data) => {
+              // Limpiar el formulario después de crear el producto
+              console.log('Producto creado:', data, option);
+              document.querySelector('#name').value = '';
+              document.querySelector('#price').value = '';
+              document.querySelector('#discount').value = '';
+              document.querySelector('#category').value = '';
+              document.querySelector('#description').value = '';
+              // Actualizar la lista de productos
+              cargarProductos();
+              // Cerrar el modal de crear
+              $('#crearModal').modal('hide');
+            })
+            .catch((error) => console.error('Error al crear el producto:', error));
+            
+      });
+    };
 // Función para cargar la lista de productos desde la API
 function cargarProductos() {
   fetch(apiUrl)
@@ -15,7 +83,7 @@ function cargarProductos() {
 
 // Función para mostrar los productos en la tabla
 function mostrarProductos(productos) {
-  const productosBody = document.getElementById('productosBody');
+  const productosBody = document.querySelector('#productosBody');
   productosBody.innerHTML = '';
 
   productos.forEach((producto) => {
@@ -45,15 +113,13 @@ function buscarProductos() {
     .catch((error) => console.error('Error al buscar productos:', error));
 }
 
-// Función para crear un nuevo producto
-
 // Función para editar un producto
 function editarProducto(id) {
-  const nameInput = document.getElementById('nombreEditar');
-  const priceInput = document.getElementById('precioEditar');
-  const discountInput = document.getElementById('descuentoEditar');
-  const categoryInput = document.getElementById('categoriaEditar');
-  const descriptionInput = document.getElementById('descripcionEditar');
+  const nameInput = document.querySelector('#nombreEditar');
+  const priceInput = document.querySelector('#precioEditar');
+  const discountInput = document.querySelector('#descuentoEditar');
+  const categoryInput = document.querySelector('#categoriaEditar');
+  const descriptionInput = document.querySelector('#descripcionEditar');
 
   const productoActualizado = {
     name: nameInput.value.trim(),
@@ -62,16 +128,19 @@ function editarProducto(id) {
     category: categoryInput.value.trim(),
     description: descriptionInput.value.trim(),
   };
-
-  fetch(apiUrl + '/' + id, {
-    method: 'PATCH',
+  let option ={
+    method:'PATCH',
     headers: {
-      'Content-Type': 'application/json',
+      'user': 'admin',
+      'pass': '123456'
     },
-    body: JSON.stringify(productoActualizado),
-  })
+    body: JSON.stringify(productoActualizado)
+    
+  }
+  fetch(apiUrl + '/' + id , option)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       // Actualizar la lista de productos
       cargarProductos();
       // Cerrar el modal de editar
@@ -85,12 +154,38 @@ function editarProducto(id) {
 function eliminarProducto(id) {
   // Implementa la lógica para eliminar un producto desde la API
   // Puedes usar fetch para hacer una solicitud DELETE a la API
-  if (confirm('¿Estás seguro de eliminar este producto?')) {
-    fetch(apiUrl + '/' + id, {
-      method: 'DELETE',
-    })
-      .then((response) => response.json())
-      .then(() => cargarProductos())
-      .catch((error) => console.error('Error al eliminar el producto:', error));
+  let option ={
+    method:'DELETE',
+    headers: {
+      'user': 'admin',
+      'pass': '123456'
+    }
+    
   }
+  swal({
+    title: "¿Estás seguro?",
+    text: "¡ Una vez eliminado, no podrá recuperar este archivo imaginario!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      fetch(apiUrl + '/' + id, option)
+      .then((response) => response.json())
+      .then(() => {
+        swal("Puuf! Producto Eliminado!", {
+          icon: "success",
+        });    
+        cargarProductos()
+      })
+      .catch((error) => console.error('Error al eliminar el producto:', error));
+
+      
+    } else {
+      swal("Producto No Eliminado!");
+    }
+  });
+    
 }
+

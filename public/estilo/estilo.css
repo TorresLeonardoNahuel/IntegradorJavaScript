@@ -484,9 +484,16 @@ header {
   .prod-conteiner{
     min-width: 100%;
     margin-left: 10px;
+    color: #000;
   }
   
-  
+  .prod-conteiner{
+    min-width: 100%;
+    margin-left: 10px;
+  }
+  .container .mt-4 > h1{
+    color: #000;
+  }
   .modal {
     display: none;
     position: fixed;
@@ -505,7 +512,7 @@ header {
   color: #fff;
 }
 .modal-content {
-    background-color: #1c0e29;
+    background-color: #472A4E;
     margin: 5% auto;
     padding: 20px;
     width: 70%;
