@@ -77,7 +77,9 @@ window.onload = function  () {
 function cargarProductos() {
   fetch(apiUrl)
     .then((response) => response.json())
-    .then((data) => mostrarProductos(data))
+    .then((data) => {
+      
+      mostrarProductos(data);})
     .catch((error) => console.error('Error al cargar los productos:', error));
 }
 
