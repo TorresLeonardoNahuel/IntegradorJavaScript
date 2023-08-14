@@ -9,7 +9,9 @@ router.get('/', controller.listar);
 
 router.get('/:id', validateProduct.validateId, controller.detalle);
 
-router.post('/',  validateProduct.validateProductData, validateProduct.validateResultado, checkLogin, customImageUpload('products'), controller.crear);
+router.post('/',  checkLogin,validateProduct.validateProductData, 
+//validateProduct.validateResultado, 
+customImageUpload('products'), controller.crear);
 
 router.patch('/:id',  validateProduct.validateId, validateProduct.validateProductData, validateProduct.validateProductExists ,checkLogin, customImageUpload('products'), controller.actualizar);
 

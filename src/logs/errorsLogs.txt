@@ -205,3 +205,36 @@
 [13/08/2023, 22:15:57] 500 Cannot read properties of undefined (reading 'validateResult')
  TypeError: Cannot read properties of undefined (reading 'validateResult')
 
+[13/08/2023, 23:59:44] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[14/08/2023, 00:00:43] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[14/08/2023, 00:01:03] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[14/08/2023, 00:01:44] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[14/08/2023, 00:02:58] 500 Multipart: Boundary not found
+ Error: Multipart: Boundary not found
+
+[14/08/2023, 00:06:21] 500 Product validation failed: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[14/08/2023, 00:21:10] 500 validateResult is not defined
+ ReferenceError: validateResult is not defined
+
+[14/08/2023, 00:22:36] 500 validateProductData is not defined
+ ReferenceError: validateProductData is not defined
+
+[14/08/2023, 00:23:15] 500 validateProductData is not defined
+ ReferenceError: validateProductData is not defined
+
+[14/08/2023, 00:34:07] 500 Product validation failed: price: Cast to Number failed for value "asdasd" (type string) at path "price", discount: Cast to Number failed for value "asdasd" (type string) at path "discount"
+ ValidationError: price: Cast to Number failed for value "asdasd" (type string) at path "price", discount: Cast to Number failed for value "asdasd" (type string) at path "discount"
+
+[14/08/2023, 00:46:44] 404 No se encontraron productos con el nombre especificado
+ Error: No se encontraron productos con el nombre especificado
+

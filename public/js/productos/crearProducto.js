@@ -24,26 +24,16 @@ window.onload = function  () {
     });
    
    productForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+        
 
         async function upload(formData) {
-          let header =''
-          if (formData.get('imagen')){
-          header = {
-              'Content-Type': 'application/x-www-form-urlencoded',          
-              'user': 'admin',
-              'pass': '123456'
-            }
-          }else{
-            header = {
-              'Content-Type': 'multipart/form-data',          
-              'user': 'admin',
-              'pass': '123456'
-            }
-          }
+          
               let option ={
                 method:'POST',
-                headers: header,
+                headers: {
+                          
+                  'user': 'admin',
+                  'pass': '123456'},
                 body: formData
               }
               console.log(option.body.get('name'), option.body.get('price'), option.body.get('discount'), option.body.get('category'));
@@ -52,9 +42,9 @@ window.onload = function  () {
                   return  response.json();
               })
                 .then((data) => {
-                  console.log(data.validaciones);
+                  console.log(data);
                   // Limpiar el formulario después de crear el producto
-                  if (data.validaciones.length > 0) {
+                  if (data.validaciones) {
                     let aviso = ""; // Inicializar la variable 'aviso'
         
                     data.validaciones.forEach((error) => {
@@ -74,8 +64,13 @@ window.onload = function  () {
                     document.querySelector('#description').value = '';
                     // Actualizar la lista de productos
                     cargarProductos();
+                    swal({
+                      icon: "success"
+                      ,title: "Producto Creado"
+                    ,text: 'Se Creo el Nuevo Producto Correctamente'
+                    })
                     // Cerrar el modal de crear
-                    document.querySelector('#crearModal').modal('hide');
+                    $('.modal').css('display','none');
                   }
                 })
               .catch((error) => {
@@ -98,6 +93,7 @@ window.onload = function  () {
       formData.append(`category`, category);
       formData.append('description', description);
       formData.append('imagen', imagenFile);
+      event.preventDefault();
       upload(formData);
       //console.log(formData.get('name'), formData.get('price'), formData.get('discount'), formData.get('category'), formData.get('description'))
         
@@ -197,7 +193,7 @@ function eliminarProducto(id) {
   }
   swal({
     title: "¿Estás seguro?",
-    text: "¡ Una vez eliminado, no podrá recuperar este archivo imaginario!",
+    text: "¡ Una vez eliminado este Producto, no podrá recuperalo !",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -207,7 +203,7 @@ function eliminarProducto(id) {
       fetch(apiUrl + '/' + id, option)
       .then((response) => response.json())
       .then(() => {
-        swal("Puuf! Producto Eliminado!", {
+        swal("Se Elimino el Producto !", {
           icon: "success",
         });    
         cargarProductos()

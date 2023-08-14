@@ -1,6 +1,7 @@
 const { check, body, param, query  } = require('express-validator');
 
 const validateHelper  = require('../helpers/validateHelper.js');
+
 const mongoose = require('mongoose');
 const Product = require('../database/models/Product.js'); 
 const validateProduct = {
@@ -10,7 +11,7 @@ const validateProduct = {
 
   validateProductData:[
   //  function(req,res){
-  //   console.log(req);
+  //   console.log(req.body);
   //  },
     body('name')
     .exists().withMessage('Debe existir la propiedad Name').bail()
@@ -70,6 +71,7 @@ const validateProduct = {
     }
   },
   validateResultado: (req, res, next) => {
+  
     const validaciones = validateHelper.validateResult(req); // Obtiene las validaciones desde el helper
     if (validaciones) {
         return res.status(400).json({ validaciones: validaciones });
