@@ -25,51 +25,82 @@ window.onload = function  () {
    
    productForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        const name = document.querySelector('#name').value;
-        const price = document.querySelector('#price').value;
-        const discount = document.querySelector('#discount').value;
-        const category = document.querySelector('#category').value;
-        const description = document.querySelector('#description').value;
-        const imagenFile = document.querySelector("#imagen").files[0]; // Obtener el archivo seleccionado
-        console.log(name,price,discount,category,description,imagenFile);
-        // Crear un objeto FormData para enviar los datos y la imagen al servidor
-        const formData = new FormData();
 
-        formData.append("name", name);
-        formData.append("price", price);
-        formData.append("discount", discount);
-        formData.append(`category`, category);
-        formData.append('description', description);
-        formData.append('imagen', imagenFile); 
-        console.log(formData);
-
-        let option ={
-          method:'POST',
-          headers: {
-            'user': 'admin',
-            'pass': '123456'
-          },
-          body: formData
-          
-        }
-          fetch(apiUrl,option)
-            .then(function (response) {
-              return  response.json();
-          })
-            .then((data) => {
-              // Limpiar el formulario después de crear el producto
-              console.log('Producto creado:', data, option);
-              document.querySelector('#name').value = '';
-              document.querySelector('#price').value = '';
-              document.querySelector('#discount').value = '';
-              document.querySelector('#category').value = '';
-              document.querySelector('#description').value = '';
-              // Actualizar la lista de productos
-              cargarProductos();
-              // Cerrar el modal de crear
-              $('#crearModal').modal('hide');
-            })
-            .catch((error) => console.error('Error al crear el producto:', error));
+        async function upload(formData) {
+          let header =''
+          if (formData.get('imagen')){
+          header = {
+              'Content-Type': 'application/x-www-form-urlencoded',          
+              'user': 'admin',
+              'pass': '123456'
+            }
+          }else{
+            header = {
+              'Content-Type': 'multipart/form-data',          
+              'user': 'admin',
+              'pass': '123456'
+            }
+          }
+              let option ={
+                method:'POST',
+                headers: header,
+                body: formData
+              }
+              console.log(option.body.get('name'), option.body.get('price'), option.body.get('discount'), option.body.get('category'));
+              await fetch(apiUrl,option)
+                .then(function (response) {
+                  return  response.json();
+              })
+                .then((data) => {
+                  console.log(data.validaciones);
+                  // Limpiar el formulario después de crear el producto
+                  if (data.validaciones.length > 0) {
+                    let aviso = ""; // Inicializar la variable 'aviso'
+        
+                    data.validaciones.forEach((error) => {
+                        aviso += error.msg + "\n"; // Agregar cada mensaje de error con un salto de línea
+                    });
+                    swal({
+                      icon: "error"
+                      ,title: "Error"
+                    ,text: aviso
+                    })
+                  }else {
+                    console.log('Producto creado:', data);
+                    document.querySelector('#name').value = '';
+                    document.querySelector('#price').value = '';
+                    document.querySelector('#discount').value = '';
+                    document.querySelector('#category').value = '';
+                    document.querySelector('#description').value = '';
+                    // Actualizar la lista de productos
+                    cargarProductos();
+                    // Cerrar el modal de crear
+                    document.querySelector('#crearModal').modal('hide');
+                  }
+                })
+              .catch((error) => {
+                console.error('Error al crear el producto:', error)
+              });              
+      }
+      const name = document.querySelector('#name').value;
+      const price = document.querySelector('#price').value;
+      const discount = document.querySelector('#discount').value;
+      const category = document.querySelector('#category').value;
+      const description = document.querySelector('#description').value;
+      const imagenFile = document.querySelector("#imagen").files[0]; // Obtener el archivo seleccionado
+      //console.log(name,price,discount,category,description,imagenFile);
+      // Crear un objeto FormData para enviar los datos y la imagen al servidor
+      const formData = new FormData();
+      
+      formData.append("name", name);
+      formData.append("price", price);
+      formData.append("discount", discount);
+      formData.append(`category`, category);
+      formData.append('description', description);
+      formData.append('imagen', imagenFile);
+      upload(formData);
+      //console.log(formData.get('name'), formData.get('price'), formData.get('discount'), formData.get('category'), formData.get('description'))
+        
             
       });
     };

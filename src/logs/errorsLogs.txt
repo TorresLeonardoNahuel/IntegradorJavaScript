@@ -70,3 +70,138 @@
 [10/08/2023, 19:44:33] 500 User validation failed: gender: Path `gender` is required., email: Path `email` is required.
  ValidationError: gender: Path `gender` is required., email: Path `email` is required.
 
+[13/08/2023, 00:41:43] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 00:47:57] 500 Cannot read properties of undefined (reading 'notEmpty')
+ TypeError: Cannot read properties of undefined (reading 'notEmpty')
+
+[13/08/2023, 00:48:20] 500 req.body.name is not a function
+ TypeError: req.body.name is not a function
+
+[13/08/2023, 00:52:51] 500 body is not a function
+ TypeError: body is not a function
+
+[13/08/2023, 01:47:07] 500 myValidationResult is not defined
+ ReferenceError: myValidationResult is not defined
+
+[13/08/2023, 01:47:45] 500 errors.isEmpty is not a function
+ TypeError: errors.isEmpty is not a function
+
+[13/08/2023, 02:15:18] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 02:15:32] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 02:16:08] 500 Product validation failed: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 02:16:17] 500 Product validation failed: discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 02:17:29] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 02:20:27] 500 validationResult is not defined
+ ReferenceError: validationResult is not defined
+
+[13/08/2023, 02:33:27] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:34:01] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:34:46] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:35:55] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:36:13] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:37:29] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:37:34] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:44:14] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:45:11] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:45:57] 400 Unexpected token - in JSON at position 0
+ SyntaxError: Unexpected token - in JSON at position 0
+
+[13/08/2023, 02:53:51] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:54:17] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:54:36] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:55:02] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:55:40] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:56:07] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:56:39] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 02:57:18] 500 errors.isEmpty is not a function
+ TypeError: errors.isEmpty is not a function
+
+[13/08/2023, 02:58:57] 500 Unexpected token o in JSON at position 1
+ SyntaxError: Unexpected token o in JSON at position 1
+
+[13/08/2023, 02:59:46] 500 Cannot read properties of undefined (reading 'errors')
+ TypeError: Cannot read properties of undefined (reading 'errors')
+
+[13/08/2023, 03:02:48] 500 errors.errors.isEmpty is not a function
+ TypeError: errors.errors.isEmpty is not a function
+
+[13/08/2023, 03:07:32] 500 errors.forEach is not a function
+ TypeError: errors.forEach is not a function
+
+[13/08/2023, 03:08:42] 500 errors.forEach is not a function
+ TypeError: errors.forEach is not a function
+
+[13/08/2023, 03:10:02] 500 errors.forEach is not a function
+ TypeError: errors.forEach is not a function
+
+[13/08/2023, 19:33:54] 500 validationResult is not defined
+ ReferenceError: validationResult is not defined
+
+[13/08/2023, 21:23:03] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 21:23:14] 500 Product validation failed: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 21:23:22] 500 Product validation failed: price: Cast to Number failed for value "asdas" (type string) at path "price", discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: price: Cast to Number failed for value "asdas" (type string) at path "price", discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 21:24:51] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 21:27:46] 500 Product validation failed: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+ ValidationError: name: Path `name` is required., price: Path `price` is required., discount: Path `discount` is required., category: Path `category` is required., description: Path `description` is required.
+
+[13/08/2023, 22:13:52] 500 validateHelper is not defined
+ ReferenceError: validateHelper is not defined
+
+[13/08/2023, 22:15:00] 500 Cannot read properties of undefined (reading 'validateResult')
+ TypeError: Cannot read properties of undefined (reading 'validateResult')
+
+[13/08/2023, 22:15:57] 500 Cannot read properties of undefined (reading 'validateResult')
+ TypeError: Cannot read properties of undefined (reading 'validateResult')
+
