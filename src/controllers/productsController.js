@@ -49,6 +49,10 @@ const controller = {
     eliminar : async (req, res, next) => {
         try {
             let producto = await Product.deleteOne({_id: req.params.id});
+            if (producto.image !== 'image-default.png') {
+              // Si la imagen actual no es la por defecto, eliminarla
+              fs.unlinkSync(path.resolve(__dirname, `../../public/images/products/${producto.image}`));
+            }
             res.status(200).json(producto);        
         } catch (e) {
             next(e);

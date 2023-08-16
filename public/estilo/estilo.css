@@ -495,7 +495,8 @@ header {
     color: #000;
   }
   .modal {
-    display: none;
+    visibility: hidden;
+    display: block;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -504,6 +505,7 @@ header {
     height: 100%;
     background-color: rgba(5, 0, 8, 0.6);
 }
+
 .modal-dialog{
   max-width: 700px;
   color: #fff;
@@ -517,6 +519,7 @@ header {
     padding: 20px;
     width: 70%;
 }
+
 
  .close {
     float: right;

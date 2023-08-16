@@ -11,7 +11,7 @@ router.get('/:id' , validateUser.validateId, controller.detalle);
 
 router.post('/' , checkLogin, validateUser.validateUserData, customImageUpload('users'), controller.crear);
 
-router.patch('/:id' , checkLogin, validateUser.validateId, validateUser.validateUserData,validateUser.validateUserExists, customImageUpload('users'), controller.actualizar);
+router.patch('/:id' , checkLogin, validateUser.validateId, validateUser.validateUserData, validateUser.validateUserExists, customImageUpload('users'), controller.actualizar);
 
 router.delete('/:id' , checkLogin, validateUser.validateId, validateUser.validateUserExists,controller.eliminar);
 

@@ -28,7 +28,7 @@ function customImageUpload(folderPath) {
       if (!file || !file.originalname) {
         // No file uploaded, continue without error
         cb(null, true);
-      } else if (!file.originalname.match(/\.(png|jpg)$/)) {
+      } else if (!file.originalname.match(/\.(png|jpg|)$/)) {
         // Upload only png and jpg format
         return cb(new Error('Por Favor subir una Imagen .jpg o .png'));
       }
@@ -39,7 +39,7 @@ function customImageUpload(folderPath) {
   return (req, res, next) => {
     // Cuando se trate de una solicitud de actualización (PATCH) y no se envía una imagen,
     // asignar la imagen por defecto directamente al objeto req.file.
-    if (req.method === 'PATCH' && !req.file) {
+    if (req.method === 'PUT' && !req.file) {
       req.file = {
         filename: 'image-default.png',
       };
