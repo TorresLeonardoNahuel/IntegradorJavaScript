@@ -73,20 +73,37 @@ const controller = {
           description: req.body.description || producto.description,
         };
   
+
         if (req.file && req.file.filename) {
           // Si se proporciona una nueva imagen, actualizarla
-          if (producto.image !== 'image-default.png') {
+          
+          if (producto.image !== 'image-default.png' && producto.image !==  req.body.imagen) {
             // Si la imagen actual no es la por defecto, eliminarla
             fs.unlinkSync(path.resolve(__dirname, `../../public/images/products/${producto.image}`));
           }
-          productoActualizado.image = req.file.filename;
+          if(producto.image !== req.body.imagen){
+
+            productoActualizado.image = req.file.filename;
+            
+            }else {
+              productoActualizado.image = productoActualizado.image
+            }
+          
         } else if (!req.body.image && !req.file) {
+          
           // Si el usuario no proporciona una imagen, asignar la imagen por defecto
-          if (producto.image !== 'image-default.png') {
+          if (producto.image !== 'image-default.png' && producto.image !==  req.body.imagen) {
             // Si la imagen actual no es la por defecto, eliminarla
             fs.unlinkSync(path.resolve(__dirname, `../../public/images/products/${producto.image}`));
           }
+
+          if(producto.image !== req.body.imagen){
+
           productoActualizado.image = 'image-default.png';
+
+          }else {
+            productoActualizado.image = req.body.imagen
+          }
         }
   
         const productoGuardado = await Product.findByIdAndUpdate(productId, productoActualizado, {
@@ -105,6 +122,7 @@ const controller = {
       
           // Use a case-insensitive regular expression for partial matches
           const regex = new RegExp(palabraBuscar, 'i');
+          console.log(regex);
           
           let productosEncontrados = await Product.find({ name: regex });
       

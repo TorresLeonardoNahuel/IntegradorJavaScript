@@ -531,5 +531,12 @@ header {
 button {
     margin-top: 10px;
 }
-
+#productosBody img{
+  width: 80%;
+  height: 80%;
+}
+#productForm img{
+  width: 40%;
+  height: 40%;
+}
 /* Other styling as per your preference */

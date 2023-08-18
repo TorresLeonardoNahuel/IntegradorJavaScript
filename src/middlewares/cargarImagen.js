@@ -5,6 +5,7 @@ const path = require('path');
 function customImageUpload(folderPath) {
   const rutaImagenes = path.resolve(__dirname, `../../public/images/${folderPath}`);
 
+  
   const imageStorage = multer.diskStorage({
     destination: rutaImagenes,
     filename: (req, file, cb) => {

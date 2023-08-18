@@ -1,29 +1,10 @@
 // Función para cargar la lista de productos al cargar la página
 function crearProduct() {
   modal.addEventListener("dblclick", function (event) {
-    qys("#name").value = "";
-    qys("#price").value = "";
-    qys("#discount").value = "";
-    qys("#category").value = "";
-    qys("#description").value = "";
-    qys("#preViewsImg").innerHTML = '';
-    
-    if (event.target === modal) {
-      modal.style.visibility = "hidden";
-      btnModalActualizar.style.visibility = "hidden";
-      btnModalCrear.style.visibility = "hidden";
-    }
+    location.reload();
   });
   closeModalBtn.addEventListener("click", function () {
-    qys("#name").value = "";
-    qys("#price").value = "";
-    qys("#preViewsImg").innerHTML = '';
-    qys("#discount").value = "";
-    qys("#category").value = "";
-    qys("#description").value = "";
-    modal.style.visibility = "hidden";
-    btnModalActualizar.style.visibility = "hidden";
-    btnModalCrear.style.visibility = "hidden";
+    location.reload();
   });
   openModalBtn.addEventListener("click", function () {
     qys("#name").value = "";
@@ -31,6 +12,7 @@ function crearProduct() {
     qys("#discount").value = "";
     qys("#category").value = "";
     qys("#description").value = "";
+    qys("#imagen").value = "";
     modal.style.visibility = "visible";
     btnModalActualizar.style.visibility = "hidden";
     btnModalCrear.style.visibility = "visible";
@@ -55,7 +37,15 @@ function crearProduct() {
     formData.append("description", description);
     formData.append("imagen", imagenFile);
 
-    //console.log(formData.get('name'), formData.get('price'), formData.get('discount'), formData.get('category'), formData.get('description'))
+    // console.log(
+    //   formData.get("name"),
+    //   formData.get("price"),
+    //   formData.get("discount"),
+    //   formData.get("category"),
+    //   formData.get("description"),
+    //   formData.get("imagen")
+
+    // );
 
     let option = {
       method: "POST",
@@ -65,12 +55,13 @@ function crearProduct() {
       },
       body: formData,
     };
-    console.log(
-      option.body.get("name"),
-      option.body.get("price"),
-      option.body.get("discount"),
-      option.body.get("category")
-    );
+    // console.log(
+    //   option.body.get("name"),
+    //   option.body.get("price"),
+    //   option.body.get("discount"),
+    //   option.body.get("category"),
+    //   option.body.get("imagen")
+    // );
 
     fetch(apiUrl, option)
       .then(function (response) {
@@ -90,21 +81,17 @@ function crearProduct() {
             text: aviso,
           });
         } else {
-          console.log("Producto creado:", data);
-          qys("#name").value = "";
-          qys("#price").value = "";
-          qys("#discount").value = "";
-          qys("#category").value = "";
-          qys("#description").value = "";
           // Actualizar la lista de productos
-          cargarProductos(apiUrl, mostrarProductos, productosBody);
           swal({
             icon: "success",
             title: "Producto Creado",
             text: "Se Creo el Nuevo Producto Correctamente",
+          }).then((ok) => {
+            if (ok) {
+              console.log("Producto creado:", data);
+              location.reload();
+            }
           });
-          // Cerrar el modal de crear
-          $(".modal").css("visibility", "hidden");
         }
       })
       .catch((error) => {

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const {convertHoraArgentina} =require('./reqLog.js')
+const {convertHoraArgentina} =require('../middlewares/reqLog.js')
 
 
 const erroresHandler = (err, req, res, next) => {

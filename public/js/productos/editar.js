@@ -1,23 +1,36 @@
-function ocultarFormularioEdicion() {
-    // Restaurar el formulario a su estado original
-    qys("#name").value = "";
-    qys("#price").value = "";
-    qys("#discount").value = "";
-    qys("#category").value = "";
-    qys("#description").value = "";
-    modal.style.visibility = "hidden";
-    btnModalCrear.style.visibility = "hidden";
-    btnModalActualizar.style.visibility = "hidden";
-}
 
 // Función para cargar los datos del producto en el formulario de edición
 function cargarProductoEditado( producto) {
+  
     const name = qys("#name").value;
     const price = parseInt(qys("#price").value,10);
     const discount = parseInt(qys("#discount").value,10);
     const category = qys("#category").value;
     const description = qys("#description").value;
-    const imagenFile = qys("#imagen").files[0]; // Obtener el archivo seleccionado
+    const imagen = qys('#imagen').value;
+    let imagenFile = '';
+    if (imagen) {
+       imagenFile = qys("#imagen").files[0]; // Obtener el archivo seleccionado
+    }else{
+      swal({
+        title: "¿Estás seguro?",
+        text: "¡ Una vez eliminado este Producto, no podrá recuperalo !",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("imagen No Eliminada!");
+          imagenFile = '';
+          
+        } else {
+          swal("Imagen No se Elimino!");
+          imagenFile = producto.image;
+        }
+      });
+    }
+    
     //console.log(name,price,discount,category,description,imagenFile);
     // Crear un objeto FormData para enviar los datos y la imagen al servidor
     const formData = new FormData();
@@ -29,7 +42,7 @@ function cargarProductoEditado( producto) {
     formData.append("description", description);
     formData.append("imagen", imagenFile);
 
-    console.log(formData.get('name'), formData.get('price'), formData.get('discount'), formData.get('category'), formData.get('description'))
+    console.log(formData.get('imagen'))
 
     let option = {
       method: "PUT",
@@ -39,7 +52,7 @@ function cargarProductoEditado( producto) {
       },
       body: formData,
     };
-    console.log(option);
+    //console.log(option);
     fetch(apiUrl + producto._id, option)
       .then(function (response) {
         return response.json();
@@ -57,23 +70,20 @@ function cargarProductoEditado( producto) {
             title: "Error",
             text: aviso,
           });
-        } else {
-          console.log("Producto Actualizado:", data);
-          qys("#name").value = "";
-          qys("#price").value = "";
-          qys("#discount").value = "";
-          qys("#category").value = "";
-          qys("#description").value = "";
-          // Actualizar la lista de productos
-          
-          swal({
-            icon: "success",
-            title: "Producto Actualizado",
-            text: "Se Actualizaron los datos del Producto Correctamente",
-          });
-          ocultarFormularioEdicion();
-          cargarProductos(apiUrl, mostrarProductos, productosBody);
-        }
+        }else {
+            console.log("Producto Actualizado:", data);
+                       
+            swal({
+              icon: "success",
+              title: "Producto Actualizado",
+              text: "Se Actualizaron los datos del Producto Correctamente",
+            }).then((ok) => {
+              if (ok) {
+                location.reload();
+                
+              }
+            });
+          }
       })
       .catch((error) => {
         console.error("Error al Actualizar el producto:", error);

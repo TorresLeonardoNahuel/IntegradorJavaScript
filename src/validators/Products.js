@@ -1,5 +1,7 @@
 const { check, body, param, query } = require("express-validator");
 const validateHelper = require("../helpers/validateHelper.js");
+const fs = require("fs");
+const path = require("path");
 
 const mongoose = require("mongoose");
 const Product = require("../database/models/Product.js");
@@ -39,27 +41,34 @@ const validateProduct = {
       .isEmpty()
       .withMessage("Se necesita un Precio de producto")
       .bail()
-      // .isNumeric()
-      // .withMessage("Ingresar un valor Numerico en el precio")
-      // .bail()
-      ,
+      .custom((value, { req }) => {
+        if (isNaN(parseFloat(value))) {
+          throw new Error("Ingresar un valor Numérico en el Precio de producto");
+        }
+        if (parseFloat(value) < 0) {
+          throw new Error(
+            "El Precio debe ser Positivo"
+          );
+        }
+        return true;
+      })
+      .bail(),
     body("discount")
       .exists()
       .withMessage("Debe existir la propiedad Discount")
       .bail()
-      .not()
-      // .isNumeric()
-      // .withMessage("Ingresar un valor Numerico en el descuento")
-      // .bail()
       .custom((value, { req }) => {
-        if (value >= 0 && value < 100) {
+        if (isNaN(parseFloat(value))) {
+          throw new Error("Ingresar un valor Numérico en el descuento");
+        }
+        if (parseFloat(value) < 0 || parseFloat(value) >= 100) {
           throw new Error(
             "El descuento debe ser mayor o igual a 0 y menor a 100"
           );
         }
         return true;
       })
-     .bail(),
+      .bail(),
     body("category")
       .exists()
       .withMessage("Debe existir la propiedad Category")
@@ -67,14 +76,14 @@ const validateProduct = {
       .not()
       .isEmpty()
       .withMessage("Se necesita una Categoria del producto")
-     .bail()
+      .bail()
       .isString()
       .withMessage("Se requiere que sea Alfanumerico")
       .bail(),
     body("description")
       .exists()
       .withMessage("Debe existir la propiedad Description")
-     .bail()
+      .bail()
       .not()
       .isEmpty()
       .withMessage("Se necesita una Descripcion del producto")
@@ -82,7 +91,7 @@ const validateProduct = {
       .isString()
       .withMessage("Se requiere que sea Alfanumerico")
       .bail()
-      .isLength({ min: 0, max: 100 })
+      .isLength({ min: 0, max: 500 })
       .withMessage("no debe superar los 100 caracteres")
       .bail(),
   ],
@@ -113,11 +122,16 @@ const validateProduct = {
     }
   },
   validateResultado: (req, res, next) => {
-    console.log(req.body);
     const validaciones = validateHelper.validateResult(req); // Obtiene las validaciones desde el helper
+    //console.log('Estoy en Validaciones este resulto',validaciones);
     if (validaciones) {
+      if (req.file.filename) {
+       if(req.file.filename !== "image-default.png"){
+        fs.unlinkSync(path.resolve(__dirname, `../../public/images/products/${req.file.filename}`));
+        }
+      }
       return res.status(400).json({ validaciones: validaciones });
-    }else{
+    } else {
       next();
     }
   },
